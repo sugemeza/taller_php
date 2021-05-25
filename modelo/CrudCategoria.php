@@ -1,11 +1,11 @@
 <?php
 
-class Crud_Categoria{
+class CrudCategoria{
 
     //Definir constructor vacio
     public function __construct(){}
 
-    public function Listar_Categoria(){
+    public function ListarCategoria(){
         $Db = Db:: Conectar();//Cadena de conexión
         $sql = $Db->query('SELECT * FROM categorias');//Definir la consulta
         $sql->execute();//Ejecución de la cosulta
