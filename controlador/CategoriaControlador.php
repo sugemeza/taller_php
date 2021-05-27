@@ -4,7 +4,7 @@ require_once('Conexion.php');
 require_once('../modelo/Categoria.php');
 require_once('../modelo/CrudCategoria.php');
 
-class ControladorCategoria{
+class CategoriaControlador{
     public function __construct(){}
 }
 
