@@ -10,7 +10,7 @@ class CrudServicio{
         $sql = $Db->query('SELECT * FROM servicios');//Definir la consulta
         $sql->execute();//Ejecución de la cosulta
         Db::CerrarConexion($Db);//Función para desonectarse de la base de datos
-        return $sql->fetchAll();
+        return $sql->fetchAll();//Método PDO para obtener todas las consultas de la Db
 
     }
 }

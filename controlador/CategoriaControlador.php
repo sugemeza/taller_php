@@ -7,13 +7,13 @@ require_once('../modelo/CrudCategoria.php');
 class CategoriaControlador{
     public function __construct(){}
 
-    public function ListarCategoria(){
+    public function ListarCategorias(){
         $crudCategoria = new Crudcategoria();
-        var_dump($crudCategoria->ListarCategoria());
+        return $crudCategoria->ListarCategorias();
     }
 }
 
 $controladorPedido = new CategoriaControlador();
-$controladorPedido->ListarCategoria();
+//$controladorPedido->ListarCategoria();
 
 ?>

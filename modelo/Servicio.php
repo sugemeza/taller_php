@@ -13,7 +13,7 @@ class Servicio{
     public function __construct(){}
 
     //Métodos set de acceso de una propiedad (fijar)
-    public function setServicioId($servicio_id){
+    public function setServicioId($nombre){
         $this->categoria_id = $categoria_id;
     }
     public function setServicioNombre($nombre){

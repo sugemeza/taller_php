@@ -7,13 +7,13 @@ require_once('../modelo/CrudServicio.php');
 class ServicioControlador{
     public function __construct(){}
 
-    public function ListarServicio(){
+    public function ListarServicios(){
         $crudServicio = new CrudServicio();
-        var_dump($crudServicio->ListarServicio());
+        return $crudServicio->ListarServicios();
     }
 }
 
 $controladorPedido = new ServicioControlador();
-$controladorPedido->ListarServicio();
+//$controladorPedido->ListarServicio();
 
 ?>
