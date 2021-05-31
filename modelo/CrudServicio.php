@@ -5,7 +5,7 @@ class CrudServicio{
     //Definir constructor vacio
     public function __construct(){}
 
-    public function ListarServicio(){
+    public function ListarServicios(){
         $Db = Db:: Conectar();//Cadena de conexión
         $sql = $Db->query('SELECT * FROM servicios');//Definir la consulta
         $sql->execute();//Ejecución de la cosulta
