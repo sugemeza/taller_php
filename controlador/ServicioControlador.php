@@ -7,28 +7,27 @@ require_once('../modelo/CrudServicio.php');
 class ServicioControlador{
     public function __construct(){}
 
-    public function ListarServicios(){
-        $CrudServicio = new CrudServicio();
-        return $CrudServicio->ListarServicios();
+    public function listarServicios(){
+        $crudServicio = new CrudServicio();
+        return $crudServicio->listarServicios();
     }
 
-    public function Guardar(){
-        $CrudServicio = new CrudServicio();
-        $Servicio = new Servicio(); 
+    public function guardar(){
+        $crudServicio = new CrudServicio();
+        $servicio = new Servicio(); 
         
         //Settear 
-        $Servicio->setServicioId(1);
-        $Servicio->setServicioNombre(1);
-        $Servicio->setCategoriaId(1);
-        $Servicio->setServicioDescripcion(1);
-        $Servicio->setServicioPrecio(1);
-        $Servicio->setServicioEstado(1);
+        $servicio->setServicioNombre('t');
+        $servicio->setCategoriaId(3);
+        $servicio->setServicioDescripcion('t');
+        $servicio->setServicioPrecio(10);
+        $servicio->setServicioEstado(1);
 
         //Método guardar de la clase curd categoria
-        echo $CrudServicio->Guardar($Servicio);
+        echo $crudServicio->guardar($servicio);
     }
 }
 
-$ServicioControlador = new ServicioControlador();
-$ServicioControlador->Guardar();
+$servicioControlador = new ServicioControlador();
+$servicioControlador->guardar();
 ?>

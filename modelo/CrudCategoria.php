@@ -5,7 +5,7 @@ class CrudCategoria{
     //Definir constructor vacio
     public function __construct(){}
 
-    public function ListarCategorias(){
+    public function listarCategorias(){
         $Db = Db:: Conectar();//Cadena de conexión
         $sql = $Db->query('SELECT * FROM categorias');//Definir la consulta
         $sql->execute();//Ejecución de la cosulta
@@ -14,7 +14,7 @@ class CrudCategoria{
 
     }
 
-    public function Guardar($categoria){
+    public function guardar($categoria){
 
         $mensaje = "";
         $Db = Db:: Conectar();//Cadena de conexión

@@ -7,24 +7,24 @@ require_once('../modelo/CrudCategoria.php');
 class CategoriaControlador{
     public function __construct(){}
 
-    public function ListarCategorias(){
+    public function listarCategorias(){
         $crudCategoria = new Crudcategoria();
-        return $crudCategoria->ListarCategorias();
+        return $crudCategoria->listarCategorias();
     }
 
-    public function Guardar(){
-        $CrudCategoria = new CrudCategoria();
-        $Categoria = new Categoria(); 
+    public function guardar(){
+        $crudCategoria = new CrudCategoria();
+        $categoria = new Categoria(); 
         
         //Settear 
-        $Categoria->setCategoriaId(91);
-        $Categoria->setCategoriaNombre('masajes');
+        $categoria->setCategoriaId(9);
+        $categoria->setCategoriaNombre('masajes');
 
         //Método guardar de la clase curd categoria
-        $CrudCategoria->Guardar($Categoria);
+        $crudCategoria->guardar($categoria);
     }
 }
 
-$CategoriaControlador = new CategoriaControlador();
-$CategoriaControlador->Guardar();
+$categoriaControlador = new CategoriaControlador();
+$categoriaControlador->guardar();
 ?>

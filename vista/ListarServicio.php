@@ -1,5 +1,7 @@
 <?php
 require_once('../controlador/ServicioControlador.php');
+
+$controladorPedido = new ServicioControlador();
 $listaServicio = $controladorPedido->ListarServicios();
 ?>
 

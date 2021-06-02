@@ -6,13 +6,15 @@ class ValidarAcceso{
 
     //Método de verificación
     //Consulta del usuario
-    public function ValidarAcceso(){
+    public function validarAcceso(){
+        $usuario = new Usuario();
+        
         $Db = Db:: Conectar();//Cadena de conexión
         $sql = $Db->prepare('SELECT * FROM usuarios
         WHERE email=:email
         AND password=:password AND estado = 1');//Definir la consulta
-        $sql->bindValue('email', $Usuario->getUsuarioEmail());//Asiganar valores a los parametros
-        $sql->bindValue('password', $Usuario->getUsuarioPassword());
+        $sql->bindValue('email', $usuario->getUsuarioEmail());//Asiganar valores a los parametros
+        $sql->bindValue('password', $usuario->getUsuarioPassword());
 
         try{
             $sql->execute();//Ejecución de la cosulta

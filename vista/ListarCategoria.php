@@ -1,6 +1,8 @@
 <?php
 require_once('../controlador/CategoriaControlador.php');
-$listaCategoria = $controladorPedido->ListarCategorias();
+
+$controladorPedido = new CategoriaControlador();
+$listaCategoria = $controladorPedido->listarCategorias();
 ?>
 
 <!DOCTYPE html>
