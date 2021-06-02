@@ -10,16 +10,16 @@ class Categoria{
     public function __construct(){}
 
     //Métodos get y set
-    public function setCategoria_id($categoria_id){
+    public function setCategoriaId($categoria_id){
         $this->categoria_id = $categoria_id;
     }
-    public function setCategoria_nombre($nombre){
+    public function setCategoriaNombre($nombre){
         $this->nombre = $nombre;
     }
-    public function getCategoria_id(){
+    public function getCategoriaId(){
         return $this->categoria_id;
     }
-    public function getCategoria_nombre(){
+    public function getCategoriaNombre(){
         return $this->nombre;
     }
 
