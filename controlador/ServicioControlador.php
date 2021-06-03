@@ -18,7 +18,7 @@ class ServicioControlador{
         
         //Settear 
         $servicio->setServicioNombre('t');
-        $servicio->setCategoriaId(3);
+        $servicio->setCategoriaId(2);
         $servicio->setServicioDescripcion('t');
         $servicio->setServicioPrecio(10);
         $servicio->setServicioEstado(1);
@@ -29,5 +29,5 @@ class ServicioControlador{
 }
 
 $servicioControlador = new ServicioControlador();
-$servicioControlador->guardar();
+//$servicioControlador->guardar();
 ?>

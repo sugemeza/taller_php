@@ -26,5 +26,5 @@ class CategoriaControlador{
 }
 
 $categoriaControlador = new CategoriaControlador();
-$categoriaControlador->guardar();
+//$categoriaControlador->guardar();
 ?>
