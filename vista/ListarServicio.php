@@ -21,7 +21,7 @@ $listaServicio = $controladorPedido->listarServicios();
 <body>
     <div class="container">
         <div class="row"> 
-            <table class="striped">
+            <table class="highlight">
                 <thead>
                     <tr>
                         <th>Id</th>

@@ -20,33 +20,35 @@ $listaCategoria = $controladorPedido->listarCategorias();
 <body>
 
 <div class="container">
-    <table class="striped">
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Nombre</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <?php
-            
-            foreach($listaCategoria as $categoria){
-            ?>
+    <div class="row"> 
+        <table class="highlight">
+            <thead>
                 <tr>
-                    <td>
-                    <?php echo $categoria['categoria_id']; ?>
-                    </td>
-                    <td>
-                    <?php echo $categoria['nombre']; ?>
-                    </td>
+                    <th>Código</th>
+                    <th>Nombre</th>
                 </tr>
-            <?php
-            }
-            ?>
+            </thead>
 
-        </tbody>
-    </table>
+            <tbody>
+                <?php
+                
+                foreach($listaCategoria as $categoria){
+                ?>
+                    <tr>
+                        <td>
+                        <?php echo $categoria['categoria_id']; ?>
+                        </td>
+                        <td>
+                        <?php echo $categoria['nombre']; ?>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+
+            </tbody>
+        </table>
+    </div>
 </div>
 <!-- Compiled and minified JavaScript -->
   <script src="./Librerias/jQuery v3.6.0.js"></script>
