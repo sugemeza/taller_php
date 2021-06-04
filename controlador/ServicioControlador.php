@@ -1,7 +1,7 @@
 <?php
 //Rutas de los modelos y conexión
-require_once('../modelo/Servicio.php');
-require_once('../modelo/CrudServicio.php');
+require_once('modelo/Servicio.php');
+require_once('modelo/CrudServicio.php');
 
 class ServicioControlador{
     public function __construct(){}
@@ -31,6 +31,7 @@ class ServicioControlador{
     }
 }
 
+/*Solo esta a modo de prueba
 $servicioControlador = new ServicioControlador();
-//$servicioControlador->guardar();
+$servicioControlador->Index();*/
 ?>

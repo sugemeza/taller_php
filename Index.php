@@ -1,5 +1,7 @@
 <?php
 require_once('controlador/Conexion.php');
+//require_once('controlador/ServicioControlador.php');
+//require_once('controlador/CategoriaControlador.php');
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -14,6 +16,7 @@ require_once('controlador/Conexion.php');
  <body>      
     <nav>
         <div class="nav-wrapper">
+        <!--Pendiente por poner el link de index para que se regrese-->
         <a href="#" class="brand-logo">Logo</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="Index.php?c=Categoria">Categorías</a></li>
@@ -30,11 +33,18 @@ require_once('controlador/Conexion.php');
  </html>
 
  <?php
- if(isset($_REQUEST['c'])){
-   $controller = "controlador" . $_REQUEST['c'];
-   require_once("controlador/$controller.php");
+
+ //Para index esto es un error forzado ¿Como lo puedo solucionar?
+ if(isset($_REQUEST['c'])){ //isset determina si una variable esta vacia 
+   $controller = $_REQUEST['c']."Controlador";//Variable que va a guardar el controlador
+   require_once("controlador/$controller.php");//Guardado del controlador
+
+   $accion = "Index";//Acción del controlador por defecto
+   $controlador = new $controller;//Objeto para almacenar los controladores
+
+   call_user_func(array($controlador, $accion));//Llama al controlador y el método acceder 
  }
  else{
-
+    echo $_REQUEST['c'];
  }
  ?>

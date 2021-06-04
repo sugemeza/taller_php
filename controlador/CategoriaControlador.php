@@ -1,7 +1,7 @@
 <?php
 //Rutas de los modelos y conexión
-require_once('../modelo/Categoria.php');
-require_once('../modelo/CrudCategoria.php');
+require_once('modelo/Categoria.php');
+require_once('modelo/CrudCategoria.php');
 
 class CategoriaControlador{
     public function __construct(){}
@@ -28,6 +28,7 @@ class CategoriaControlador{
     }
 }
 
-$categoriaControlador = new CategoriaControlador();
-//$categoriaControlador->guardar();
+//Solo esta a modo de prueba
+//$categoriaControlador = new CategoriaControlador();
+//$categoriaControlador->Index();
 ?>

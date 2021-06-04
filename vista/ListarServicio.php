@@ -1,6 +1,7 @@
 <?php
-require_once('../controlador/ServicioControlador.php');
+require_once('controlador/ServicioControlador.php');
 
+//Creamos el objeto en la lista
 $controladorPedido = new ServicioControlador();
 $listaServicio = $controladorPedido->listarServicios();
 ?>
@@ -13,7 +14,7 @@ $listaServicio = $controladorPedido->listarServicios();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
    
     <title>Servicio</title>
 
@@ -24,7 +25,7 @@ $listaServicio = $controladorPedido->listarServicios();
             <table class="highlight">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>Código</th>
                         <th>Nombre</th>
                         <th>Categoria</th>
                         <th>Descripción</th>
