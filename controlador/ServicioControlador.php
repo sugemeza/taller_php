@@ -15,6 +15,10 @@ class ServicioControlador{
         return $crudServicio->listarServicios();
     }
 
+    public function registrar(){
+        require_once('vista/RegistrarServicio.html');
+    }
+
     public function guardar(){
         $crudServicio = new CrudServicio();
         $servicio = new Servicio(); 

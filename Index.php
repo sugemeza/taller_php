@@ -40,11 +40,14 @@ require_once('controlador/Conexion.php');
    require_once("controlador/$controller.php");//Guardado del controlador
 
    $accion = "Index";//Acción del controlador por defecto
+
+    if(isset($_REQUEST['accion'])){
+        $accion = $_REQUEST['accion'];
+    }
+
    $controlador = new $controller;//Objeto para almacenar los controladores
 
    call_user_func(array($controlador, $accion));//Llama al controlador y el método acceder 
  }
- else{
-    echo $_REQUEST['c'];
- }
+
  ?>

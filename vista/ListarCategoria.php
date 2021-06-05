@@ -20,42 +20,43 @@ $listaCategoria = $controladorPedido->listarCategorias();
 
 </head>
 <body>
-
-<div class="container">
-    <div class="row"> 
-        <table class="highlight">
-            <thead>
-                <tr>
-                    <th>Código</th>
-                    <th>Nombre</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php
-                
-                foreach($listaCategoria as $categoria){
-                ?>
+    <div class="container">
+        <div class="row">
+            <a class="waves-effect waves-light btn-small" href="Index.php?c=Categoria&accion=registrar">Registrar Categoria</a>  
+            <table class="highlight">
+                <thead>
                     <tr>
-                        <td>
-                        <?php echo $categoria['categoria_id']; ?>
-                        </td>
-                        <td>
-                        <?php echo $categoria['nombre']; ?>
-                        </td>
+                        <th>Código</th>
+                        <th>Nombre</th>
                     </tr>
-                <?php
-                }
-                ?>
+                </thead>
 
-            </tbody>
-        </table>
+                <tbody>
+                    <?php
+                    
+                    foreach($listaCategoria as $categoria){
+                    ?>
+                        <tr>
+                            <td>
+                            <?php echo $categoria['categoria_id']; ?>
+                            </td>
+                            <td>
+                            <?php echo $categoria['nombre']; ?>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-<!-- Compiled and minified JavaScript -->
-  <script src="./Librerias/jQuery v3.6.0.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <script type="text/javascript" src="./js/app.js"></script>    
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="./Librerias/jQuery v3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script type="text/javascript" src="./js/app.js"></script>    
 </body>
 </html>

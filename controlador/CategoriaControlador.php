@@ -15,6 +15,10 @@ class CategoriaControlador{
         return $crudCategoria->listarCategorias();
     }
 
+    public function registrar(){
+        require_once('vista/RegistrarCategoria.html');
+    }
+
     public function guardar(){
         $crudCategoria = new CrudCategoria();
         $categoria = new Categoria(); 

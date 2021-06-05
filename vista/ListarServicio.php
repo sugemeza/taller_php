@@ -21,7 +21,8 @@ $listaServicio = $controladorPedido->listarServicios();
  </head>
 <body>
     <div class="container">
-        <div class="row"> 
+        <div class="row">
+            <a class="waves-effect waves-light btn-small" href="Index.php?c=Servicio&accion=registrar">Registrar Servicio</a> 
             <table class="highlight">
                 <thead>
                     <tr>
@@ -67,6 +68,7 @@ $listaServicio = $controladorPedido->listarServicios();
         </div>
     </div>
 
+    <!-- Compiled and minified JavaScript -->
   <script src="./Librerias/jQuery v3.6.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
