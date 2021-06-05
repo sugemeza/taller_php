@@ -27,7 +27,7 @@ class ServicioControlador{
         if (!isset($_REQUEST['estado'])) {
             $_REQUEST['estado'] = 'off';
         }
-        
+
         //Settear 
         $servicio->setServicioNombre($_REQUEST['nombre']);
         $servicio->setCategoriaId(1);
@@ -37,6 +37,8 @@ class ServicioControlador{
 
         //Método guardar de la clase curd categoria
         echo $crudServicio->guardar($servicio);
+
+        $this->index();
     }
 }
 

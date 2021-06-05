@@ -30,6 +30,8 @@ class CategoriaControlador{
 
         //Método guardar de la clase curd categoria
         $crudCategoria->guardar($categoria);
+
+        $this->index();
     }
 }
 

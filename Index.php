@@ -17,7 +17,7 @@ require_once('controlador/Conexion.php');
     <nav>
         <div class="nav-wrapper">
         <!--Pendiente por poner el link de index para que se regrese-->
-        <a href="#" class="brand-logo">Logo</a>
+        <a href="Index.php" class="brand-logo">Logo</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="Index.php?c=Categoria">Categorías</a></li>
             <li><a href="Index.php?c=Servicio">Servicios</a></li>

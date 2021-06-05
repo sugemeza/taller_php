@@ -33,7 +33,9 @@ class CrudServicio{
 
         //Filtro de la ejecucion de las consultas
         try{//Ejecutar la sentencia sql definida contenida en la variable $sql
-            $sql->execute();  
+            $sql->execute();
+              
+            //Ajustar esto como una alerta 
             $mensaje = "Registro Exitoso";
         }
         catch(Exception $e){//Captura error
