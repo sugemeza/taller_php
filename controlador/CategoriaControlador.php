@@ -7,6 +7,7 @@ class CategoriaControlador{
     public function __construct(){}
 
     public function index(){
+        $categoriaControlador = new CategoriaControlador();
         require_once('vista/ListarCategoria.php');
     }
 
@@ -23,9 +24,9 @@ class CategoriaControlador{
         $crudCategoria = new CrudCategoria();
         $categoria = new Categoria(); 
         
-        //Settear 
-        $categoria->setCategoriaId(9);
-        $categoria->setCategoriaNombre('masajes');
+        //Settear
+        //Input nombre categoria 
+        $categoria->setCategoriaNombre($_REQUEST['nombre']);
 
         //Método guardar de la clase curd categoria
         $crudCategoria->guardar($categoria);
@@ -34,5 +35,6 @@ class CategoriaControlador{
 
 //Solo esta a modo de prueba
 //$categoriaControlador = new CategoriaControlador();
+//$categoriaControlador->Guardar();
 //$categoriaControlador->Index();
 ?>

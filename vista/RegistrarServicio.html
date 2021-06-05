@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Registro Servicio</title>
+    <title>Registrar Servicio</title>
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <form name="frmServicio" id="frmServicio" action="" method="POST">
+            <form name="frmServicio" id="frmServicio" action="Index.php?c=Servicio&accion=guardar" method="POST">
                 <input type="text" name="nombre" id="nombre" >
                 <label for="nombre">Nombre</label>
                 </br>
@@ -29,13 +29,13 @@
                     </br>
                     <label>
                     Off
-                    <input type="checkbox">
+                    <input type="checkbox" id="estado" name="estado" for="estado">
                     <span class="lever"></span>
                     On
                     </label>
                 </div>
-                </br>
-                <button type="button">Enviar</button>
+                </br></br>
+                <button class="waves-effect waves-light btn-small">Guardar</button> 
             </form>
         </div>
     </div>

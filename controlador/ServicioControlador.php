@@ -7,6 +7,7 @@ class ServicioControlador{
     public function __construct(){}
 
     public function index(){
+        $servicioControlador = new ServicioControlador();
         require_once('vista/ListarServicio.php');
     }
 
@@ -21,14 +22,18 @@ class ServicioControlador{
 
     public function guardar(){
         $crudServicio = new CrudServicio();
-        $servicio = new Servicio(); 
+        $servicio = new Servicio();
+
+        if (!isset($_REQUEST['estado'])) {
+            $_REQUEST['estado'] = 'off';
+        }
         
         //Settear 
-        $servicio->setServicioNombre('t');
-        $servicio->setCategoriaId(2);
-        $servicio->setServicioDescripcion('t');
-        $servicio->setServicioPrecio(10);
-        $servicio->setServicioEstado(1);
+        $servicio->setServicioNombre($_REQUEST['nombre']);
+        $servicio->setCategoriaId(1);
+        $servicio->setServicioDescripcion($_REQUEST['descripcion']);
+        $servicio->setServicioPrecio($_REQUEST['precio']);
+        $servicio->setServicioEstado($_REQUEST['estado'] === 'on' ? true : false);
 
         //Método guardar de la clase curd categoria
         echo $crudServicio->guardar($servicio);
@@ -37,5 +42,6 @@ class ServicioControlador{
 
 /*Solo esta a modo de prueba
 $servicioControlador = new ServicioControlador();
+$servicioControlador->Guardar();
 $servicioControlador->Index();*/
 ?>
