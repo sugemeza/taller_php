@@ -45,7 +45,7 @@ class ServicioControlador{
         $crudServicio = new CrudServicio();
         $servicio = $crudServicio->buscarServicio($_REQUEST['servicio_id']);
         //var_dump($servicio);Verificacion del contenido del arreglo desde la base de datos
-        //require_once('vista/EditarServicio.php');
+        require_once('vista/EditarServicio.php');
     }
 }
 

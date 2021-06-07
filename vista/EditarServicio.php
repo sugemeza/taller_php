@@ -14,13 +14,14 @@
         <div class="row">
             <form name="frmServicio" id="frmServicio" action="Index.php?c=Servicio&accion=editar" method="POST">
                 <h3>Editar Servicio</h3>
-                <input type="text" name="nombre" id="nombre" >
+                <?php echo "Código " . $servicio['servicio_id'] ?>
+                <input type="text" name="nombre" id="nombre" value="<?php echo $servicio['nombre'] ?>" >
                 <label for="nombre">Nombre</label>
                 </br>
-                <input type="text" name="descripcion" id="descripcion" >
+                <input type="text" name="descripcion" id="descripcion" value="<?php echo $servicio['descripcion'] ?>" >
                 <label for="descripcion">Descripción</label>
                 </br>
-                <input type="number" name="precio" id="precio" >
+                <input type="number" name="precio" id="precio" value="<?php echo $servicio['precio'] ?>" >
                 <label for="precio">Precio</label>
                 </br>
                 </br>
@@ -30,7 +31,8 @@
                     </br>
                     <label>
                     Off
-                    <input type="checkbox" id="estado" name="estado" for="estado">
+                    <!--estado no me esta trayendo la información-->
+                    <input type="checkbox" id="estado" name="estado" for="estado" value="<?php echo $servicio['estado'] ?>">
                     <span class="lever"></span>
                     On
                     </label>

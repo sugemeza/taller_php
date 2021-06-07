@@ -66,7 +66,7 @@ $listaServicio = $controladorPedido->listarServicios();
                                 <!--type="botton" preguintar si se puede poner Type="button"-->
                                 <!--Pendiente por poner el type hidden-->
 
-                                <input type="text" name="servicio_id" id="servicio_id" value="<?php echo $servicio['servicio_id']; ?>"/>
+                                <input type="hidden" name="servicio_id" id="servicio_id" value="<?php echo $servicio['servicio_id']; ?>"/>
                                 <button type="submit">Editar</button>
 
                                 <!--<i  class="Small material-icons">delete</i>

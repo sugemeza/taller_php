@@ -14,7 +14,8 @@
         <div class="row"> 
             <h3>Editar Categoría</h3>
             <form name="frmCategoria" id="frmCategoria" action="Index.php?c=Categoria&accion=editar" method="POST">
-                <input type="text" name="nombre" id="nombre" >
+                <?php echo "Código " . $categoria['categoria_id'] ?>
+                <input type="text" name="nombre" id="nombre" value="<?php echo $categoria['nombre'] ?>"/>
                 <label for="nombre">Nombre</label>
                 </br></br>
                 <button class="waves-effect waves-light btn-small">Guardar</button> 

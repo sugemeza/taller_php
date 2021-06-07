@@ -51,7 +51,7 @@ $listaCategoria = $controladorPedido->listarCategorias();
                                 <!--type="botton" preguintar si se puede poner Type="button"-->
                                 <!--Pendiente por poner el type hidden-->
 
-                                <input type="text" name="categoria_id" id="categoria_id" value="<?php echo $categoria['categoria_id']; ?>"/>
+                                <input type="hidden" name="categoria_id" id="categoria_id" value="<?php echo $categoria['categoria_id']; ?>"/>
                                 <button type="submit">Editar</button>
 
                                 <!--<i  class="Small material-icons">delete</i>
