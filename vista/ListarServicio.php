@@ -72,7 +72,7 @@ $listaServicio = $controladorPedido->listarServicios();
                                 <!--<i  class="Small material-icons">create</i>-->
                                 </form>
 
-                                <form name="frmEliminar" id="frmEliminar" action="Index.php?c=Servicio&accion=eliminar" method="POST">
+                                <form name="frmEliminar" id="frmEliminar<?php echo $servicio['servicio_id']?>" action="Index.php?c=Servicio&accion=eliminar" method="POST">
 
                                 <input type="hidden" name="servicio_id" id="servicio_id" value="<?php echo $servicio['servicio_id']; ?>"/>
                                
@@ -95,5 +95,14 @@ $listaServicio = $controladorPedido->listarServicios();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script type="text/javascript" src="./js/app.js"></script>    
+
+  <!--Información que consegui de datatable
+    <script type="application/javascript">
+    $(document).ready( function () {
+        $('#theTable').DataTable({
+            ajax: '/get_data.php',
+        });
+    } );-->
+</script>
 </body>
 </html>

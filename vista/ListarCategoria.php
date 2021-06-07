@@ -58,7 +58,7 @@ $listaCategoria = $controladorPedido->listarCategorias();
                                 <!--<i  class="Small material-icons">delete</i>
                                 <i  class="Small material-icons">create</i>-->
                                 </form>
-                                <form name="frmEliminar" id="frmEliminar" action="Index.php?c=Categoria&accion=eliminar" method="POST">
+                                <form name="frmEliminar" id="frmEliminar<?php echo $categoria['categoria_id']?>" action="Index.php?c=Categoria&accion=eliminar" method="POST">
 
                                 <input type="hidden" name="categoria_id" id="categoria_id" value="<?php echo $categoria['categoria_id']; ?>"/>
                                
