@@ -33,6 +33,10 @@ class CategoriaControlador{
 
         $this->index();
     }
+
+    public function editar(){
+        require_once('vista/EditarCategoria.php');
+    }
 }
 
 //Solo esta a modo de prueba

@@ -14,6 +14,7 @@ $listaCategoria = $controladorPedido->listarCategorias();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
     <title>Categoria</title>
@@ -28,6 +29,7 @@ $listaCategoria = $controladorPedido->listarCategorias();
                     <tr>
                         <th>Código</th>
                         <th>Nombre</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
 
@@ -42,6 +44,19 @@ $listaCategoria = $controladorPedido->listarCategorias();
                             </td>
                             <td>
                             <?php echo $categoria['nombre']; ?>
+                            </td>
+                            <td>
+                                <form name="frmEditar" id="frmEditar" action="Index.php?c=Categoria&accion=editar" method="POST">
+
+                                <!--type="botton" preguintar si se puede poner Type="button"-->
+                                <!--Pendiente por poner el type hidden-->
+
+                                <input type="text" name="categoria_id" id="categoria_id" value="<?php echo $categoria['categoria_id']; ?>"/>
+                                <button type="submit">Editar</button>
+
+                                <!--<i  class="Small material-icons">delete</i>
+                                <i  class="Small material-icons">create</i>-->
+                                </form>
                             </td>
                         </tr>
                     <?php
