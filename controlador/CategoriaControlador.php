@@ -35,7 +35,10 @@ class CategoriaControlador{
     }
 
     public function editar(){
-        require_once('vista/EditarCategoria.php');
+        $crudCategoria = new CrudCategoria();
+        $categoria = $crudCategoria->buscarCategoria($_REQUEST['categoria_id']);
+        //var_dump($categoria); Verificacion del contenido del arreglo desde la base de datos
+        //require_once('vista/EditarCategoria.php');
     }
 }
 

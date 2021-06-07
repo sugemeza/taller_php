@@ -40,6 +40,13 @@ class ServicioControlador{
 
         $this->index();
     }
+
+    public function editar(){
+        $crudServicio = new CrudServicio();
+        $servicio = $crudServicio->buscarServicio($_REQUEST['servicio_id']);
+        //var_dump($servicio);Verificacion del contenido del arreglo desde la base de datos
+        //require_once('vista/EditarServicio.php');
+    }
 }
 
 /*Solo esta a modo de prueba

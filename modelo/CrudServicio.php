@@ -45,6 +45,16 @@ class CrudServicio{
         Db::CerrarConexion($Db);//Cerrar la conexion con la Db
         return $mensaje;//Retorna mensaje
     }
+
+    public function buscarServicio($servicio_id){
+        $Db = Db:: Conectar();//Cadena de conexión
+        $sql = $Db->query("SELECT * FROM servicios
+        WHERE servicio_id=$servicio_id ");//Definir la consulta
+        $sql->execute();//Ejecución de la cosulta
+        Db::CerrarConexion($Db);//Función para desonectarse de la base de datos
+        return $sql->fetch();//Método PDO para obtener todas las consultas de la Db
+
+    }
 }
 
 ?>

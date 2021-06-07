@@ -39,6 +39,16 @@ class CrudCategoria{
         Db::CerrarConexion($Db);//Cerrar la conexion con la Db
         return $mensaje;//Retorna mensaje
     }
+
+    public function buscarCategoria($categoria_id){
+        $Db = Db:: Conectar();//Cadena de conexión
+        $sql = $Db->query("SELECT * FROM categorias
+        WHERE categoria_id=$categoria_id");//Definir la consulta
+        $sql->execute();//Ejecución de la cosulta
+        Db::CerrarConexion($Db);//Función para desonectarse de la base de datos
+        return $sql->fetch();//Obtener el registro 
+
+    }
 }
 
 ?>

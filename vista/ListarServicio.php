@@ -60,6 +60,19 @@ $listaServicio = $controladorPedido->listarServicios();
                             <td>
                             <?php echo $servicio['estado']; ?>
                             </td>
+                            <td>
+                                <form name="frmEditar" id="frmEditar" action="Index.php?c=Servicio&accion=editar" method="POST">
+
+                                <!--type="botton" preguintar si se puede poner Type="button"-->
+                                <!--Pendiente por poner el type hidden-->
+
+                                <input type="text" name="servicio_id" id="servicio_id" value="<?php echo $servicio['servicio_id']; ?>"/>
+                                <button type="submit">Editar</button>
+
+                                <!--<i  class="Small material-icons">delete</i>
+                                <i  class="Small material-icons">create</i>-->
+                                </form>
+                            </td>
                         </tr>
                     <?php
                     }
