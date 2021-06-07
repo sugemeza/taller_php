@@ -1,7 +1,6 @@
 <?php
 require_once('controlador/Conexion.php');
-//require_once('controlador/ServicioControlador.php');
-//require_once('controlador/CategoriaControlador.php');
+
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -10,6 +9,8 @@ require_once('controlador/Conexion.php');
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     
+     <script src="js/Funciones.js"></script>
 
      <title>Index</title>
  </head>

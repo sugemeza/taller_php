@@ -77,4 +77,26 @@ class CrudCategoria{
         Db::CerrarConexion($Db);//Cerrar la conexion con la Db
         return $mensaje;//Retorna mensaje
     }
+
+    public function eliminar($categoria_id) {
+        
+        $mensaje = "";
+        $Db = Db:: Conectar();//Cadena de conexión
+
+        $sql = $Db->prepare("DELETE FROM categorias
+        where categoria_id=$categoria_id");
+
+        //Filtro de la ejecucion de las consultas
+        try{//Ejecutar la sentencia sql definida contenida en la variable $sql
+            
+            $sql->execute();  
+            $mensaje = "Eliminación Exitoso";
+        }
+        catch(Exception $e){//Captura error
+            $mensaje = $e;
+        }
+
+        Db::CerrarConexion($Db);//Cerrar la conexion con la Db
+        return $mensaje;//Retorna mensaje
+    }
 }

@@ -16,6 +16,7 @@ $listaCategoria = $controladorPedido->listarCategorias();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/FuncionesCategoria.js"></script>
 
     <title>Categoria</title>
 
@@ -56,6 +57,12 @@ $listaCategoria = $controladorPedido->listarCategorias();
 
                                 <!--<i  class="Small material-icons">delete</i>
                                 <i  class="Small material-icons">create</i>-->
+                                </form>
+                                <form name="frmEliminar" id="frmEliminar" action="Index.php?c=Categoria&accion=eliminar" method="POST">
+
+                                <input type="hidden" name="categoria_id" id="categoria_id" value="<?php echo $categoria['categoria_id']; ?>"/>
+                               
+                                <button type="submit" onclick="eliminarCategoria(<?php echo $categoria['categoria_id']; ?>)">Eliminar</button>
                                 </form>
                             </td>
                         </tr>

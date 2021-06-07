@@ -55,7 +55,11 @@ class CategoriaControlador{
 
         $this->index();
     }
+    
+    public function eliminar(){
+        $crudCategoria = new CrudCategoria();
+        echo $crudCategoria->eliminar($_REQUEST['categoria_id']);
+        require_once('vista/Listarcategoria.php');
+    }
 }
-
-
 ?>

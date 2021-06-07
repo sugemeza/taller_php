@@ -41,7 +41,7 @@
                     </label>
                 </div>
                 </br></br>
-                <button class="waves-effect waves-light btn-small">Guardar</button> 
+                <button type="submit" class="waves-effect waves-light btn-small">Guardar</button> 
             </form>
         </div>
     </div>

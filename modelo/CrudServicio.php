@@ -91,6 +91,26 @@ class CrudServicio{
         Db::CerrarConexion($Db);//Cerrar la conexion con la Db
         return $mensaje;//Retorna mensaje
     }
+
+    public function eliminar($servicio_id) {
+        
+        $mensaje = "";
+        $Db = Db:: Conectar();//Cadena de conexión
+
+        $sql = $Db->prepare("DELETE FROM servicios
+        where servicio_id=$servicio_id");
+
+        try{//Ejecutar la sentencia sql definida contenida en la variable $sql
+            $sql->execute();  
+            $mensaje = "Eliminación Exitoso";
+        }
+        catch(Exception $e){//Captura error
+            $mensaje = $e;
+        }
+
+        Db::CerrarConexion($Db);//Cerrar la conexion con la Db
+        return $mensaje;//Retorna mensaje
+    }
 }
 
 ?>

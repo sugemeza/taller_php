@@ -69,6 +69,13 @@ class ServicioControlador{
 
         $this->index();
     }
+
+    
+    public function eliminar(){
+        $crudServicio = new CrudServicio();
+        echo $crudServicio->eliminar($_REQUEST['servicio_id']);
+        //require_once('vista/EditarCategoria.php');
+    }
 }
 
 ?>

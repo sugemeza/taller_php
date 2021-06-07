@@ -16,6 +16,7 @@ $listaServicio = $controladorPedido->listarServicios();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/FuncionesServicio.js"></script>
    
     <title>Servicio</title>
 
@@ -63,14 +64,20 @@ $listaServicio = $controladorPedido->listarServicios();
                             <td>
                                 <form name="frmEditar" id="frmEditar" action="Index.php?c=Servicio&accion=editar" method="POST">
 
-                                <!--type="botton" preguintar si se puede poner Type="button"-->
-                                <!--Pendiente por poner el type hidden-->
+                                <!--type="botton" preguintar si se puede poner Type="button" si se puede porner como un botón
+                                pero el cursor se pone como si fuese un texto-->
 
                                 <input type="hidden" name="servicio_id" id="servicio_id" value="<?php echo $servicio['servicio_id']; ?>"/>
                                 <button type="submit">Editar</button>
+                                <!--<i  class="Small material-icons">create</i>-->
+                                </form>
 
-                                <!--<i  class="Small material-icons">delete</i>
-                                <i  class="Small material-icons">create</i>-->
+                                <form name="frmEliminar" id="frmEliminar" action="Index.php?c=Servicio&accion=eliminar" method="POST">
+
+                                <input type="hidden" name="servicio_id" id="servicio_id" value="<?php echo $servicio['servicio_id']; ?>"/>
+                               
+                                <button type="submit" onclick="eliminarServicio(<?php echo $servicio['servicio_id']; ?>)">Eliminar</button>
+                                <!--<i  class="Small material-icons">delete</i>-->
                                 </form>
                             </td>
                         </tr>
