@@ -40,10 +40,22 @@ class CategoriaControlador{
         //var_dump($categoria); Verificacion del contenido del arreglo desde la base de datos
         require_once('vista/EditarCategoria.php');
     }
+
+    public function modificar(){//Actualización de la Db
+        $crudCategoria = new CrudCategoria();
+        $categoria = new Categoria(); 
+        
+        //Settear
+        //Input nombre categoria, el id no se va a modificar
+        $categoria->setCategoriaId($_REQUEST['categoria_id']);
+        $categoria->setCategoriaNombre($_REQUEST['nombre']);
+
+        //Método guardar de la clase curd categoria
+        $crudCategoria->modificar($categoria);
+
+        $this->index();
+    }
 }
 
-//Solo esta a modo de prueba
-//$categoriaControlador = new CategoriaControlador();
-//$categoriaControlador->Guardar();
-//$categoriaControlador->Index();
+
 ?>

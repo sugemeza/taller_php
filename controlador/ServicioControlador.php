@@ -47,10 +47,28 @@ class ServicioControlador{
         //var_dump($servicio);Verificacion del contenido del arreglo desde la base de datos
         require_once('vista/EditarServicio.php');
     }
+
+    public function modificar(){
+        $crudServicio = new CrudServicio();
+        $servicio = new Servicio();
+
+        if (!isset($_REQUEST['estado'])) {
+            $_REQUEST['estado'] = 'off';
+        }
+
+        //Settear 
+        $servicio->setServicioId($_REQUEST['servicio_id']);
+        $servicio->setServicioNombre($_REQUEST['nombre']);
+        $servicio->setCategoriaId(1);
+        $servicio->setServicioDescripcion($_REQUEST['descripcion']);
+        $servicio->setServicioPrecio($_REQUEST['precio']);
+        $servicio->setServicioEstado($_REQUEST['estado'] === 'on' ? true : false);
+
+        //Método guardar de la clase curd categoria
+        $crudServicio->modificar($servicio);
+
+        $this->index();
+    }
 }
 
-/*Solo esta a modo de prueba
-$servicioControlador = new ServicioControlador();
-$servicioControlador->Guardar();
-$servicioControlador->Index();*/
 ?>

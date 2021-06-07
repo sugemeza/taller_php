@@ -55,6 +55,42 @@ class CrudServicio{
         return $sql->fetch();//Método PDO para obtener todas las consultas de la Db
 
     }
+
+    public function modificar($servicio){
+
+        $mensaje = "";
+        $Db = Db:: Conectar();//Cadena de conexión
+        //Definir sentencia sql
+        //El prepare hace que el cambio de un valor no tenga efecto 
+        $sql = $Db->prepare("UPDATE
+        servicios SET nombre=:nombre, categoria_id=:categoria_id, descripcion=:descripcion, precio=:precio, estado=:estado
+        WHERE servicio_id=:servicio_id");
+
+        $sql->bindValue('servicio_id', $servicio->getServicioId());
+        $sql->bindValue('nombre',$servicio->getServicioNombre());
+
+        //Asiganacion de llave foranea
+        $sql->bindValue('categoria_id',1);
+        
+        $sql->bindValue('descripcion',$servicio->getServicioDescipcion());
+        $sql->bindValue('precio',$servicio->getServicioPrecio());
+        $sql->bindValue('estado',$servicio->getServicioEstado());
+
+        //Filtro de la ejecucion de las consultas
+        try{//Ejecutar la sentencia sql definida contenida en la variable $sql
+            $sql->execute();
+
+            //Ajustar esto como una alerta 
+            $mensaje = "Registro Exitoso";
+        }
+        catch(Exception $e){//Captura error
+            $mensaje = $e;
+            //print_r($e);die();
+        }
+
+        Db::CerrarConexion($Db);//Cerrar la conexion con la Db
+        return $mensaje;//Retorna mensaje
+    }
 }
 
 ?>
