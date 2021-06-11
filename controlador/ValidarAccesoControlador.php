@@ -11,10 +11,11 @@
          $usuario->setUsuarioEmail('admin@admin.com');
          $usuario->setUsuarioPassword('admin');
 
-        $acceso = new ValidarAcceso();
-        $acceso->validarAcceso($usuario);
+        $validarAcceso = new ValidarAcceso();
+        $validarAcceso->validarAcceso($usuario);
+
+        echo $usuario->getUsuarioId()." ".$usuario->getRolId();
+        //No me imprime el contenido
      }
  }
-    //$validarAcceso = new ValidarAccesoControlador();
-    //$validarAcceso->validarAcceso();
 ?>

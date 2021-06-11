@@ -18,21 +18,26 @@ class ValidarAcceso {
         $sql->bindValue('email', $usuario->getUsuarioEmail());//Asiganar valores a los parametros
         $sql->bindValue('password', $usuario->getUsuarioPassword());
 
+        $usuario->setUsuarioExiste(0); //Asignacion de cero al parametro existe
+
         try{
             $sql->execute();//Ejecución de la cosulta
 
             if($sql->rowCount()>0){
-                echo "Existe";
-            }
-            else{
-                echo "No existe";
+                $datosUsuario = $sql->fetch();//Almacena los datos de la consulta
+                $usuario->setUsuarioId($datosUsuario['usuario_id']);
+                $usuario->setRolId($datosUsuario['rol_id']);
+                $usuario->setUsuarioPassword('');//Asignacion de nulo a la contraseña
+
             }
         }
         catch(Exception $e){//Captura de errores
-            echo $e; //Visualizacion del error
+            echo $e->getMessage(); //Visualizacion del error
         }
 
         Db::CerrarConexion($Db);//Función para desonectarse de la base de datos
+
+        return $usuario;
        
     }
 }

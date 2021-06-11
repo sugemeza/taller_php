@@ -10,10 +10,9 @@
     <title>Index</title>
 </head>
 <body>
-
 <?php
 
-if(!isset($_SESSION['acceso']) && !isset($_REQUEST['c']) && !isset($_REQUEST['accion'])){//Si la variable de sesion existe
+if(!isset($_SESSION['Acceso']) && !isset($_REQUEST['c']) && !isset($_REQUEST['accion'])){//Si la variable de sesion existe
     require_once ('vista/Login.html');
 }
 else {
