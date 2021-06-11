@@ -6,10 +6,15 @@
 
     public function __construct(){}
 
-    public function ValidarAcceso(){
+     public function validarAcceso(){
+         $usuario = new Usuario();
+         $usuario->setUsuarioEmail('admin@admin.com');
+         $usuario->setUsuarioPassword('admin');
 
-    }
-
-    //Dejamos la clase de Login acceso hasta 1:14, nota para poder continuar
+        $acceso = new ValidarAcceso();
+        $acceso->validarAcceso($usuario);
+     }
  }
+    //$validarAcceso = new ValidarAccesoControlador();
+    //$validarAcceso->validarAcceso();
 ?>

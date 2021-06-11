@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2021 a las 19:04:26
+-- Tiempo de generación: 11-06-2021 a las 01:23:55
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 7.4.18
 
@@ -38,8 +38,7 @@ CREATE TABLE `categorias` (
 
 INSERT INTO `categorias` (`categoria_id`, `nombre`) VALUES
 (1, 'Cabello'),
-(2, 'Uñas'),
-(3, 'Facial');
+(2, 'Uñas');
 
 -- --------------------------------------------------------
 
@@ -51,6 +50,15 @@ CREATE TABLE `roles` (
   `rol_id` int(11) NOT NULL,
   `nombre` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`rol_id`, `nombre`) VALUES
+(1, 'Administrador'),
+(2, 'Cliente'),
+(3, 'Profesional');
 
 -- --------------------------------------------------------
 
@@ -67,6 +75,15 @@ CREATE TABLE `servicios` (
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `servicios`
+--
+
+INSERT INTO `servicios` (`servicio_id`, `nombre`, `categoria_id`, `descripcion`, `precio`, `estado`) VALUES
+(12, 'Sugeis Meza', 1, 'Proceso de belleza con cepillo y secador que aliza el cabello', 12.00, 0),
+(14, 'Mario Hernandez', 1, 'Proceso de belleza con cepillo y secador que aliza el cabello', 2222.00, 0),
+(15, 'Ondas', 1, 'Procedimiento hecho con tenazas que le da cuerpo al cabello', 30000.00, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -80,6 +97,16 @@ CREATE TABLE `usuarios` (
   `password` varchar(30) NOT NULL,
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`usuario_id`, `rol_id`, `email`, `password`, `estado`) VALUES
+(1, 1, 'admin@admin.com', 'admin', 1),
+(2, 3, 'profesional@profesional.com', 'profesional', 1),
+(3, 2, 'cliente@cliente.com', 'cliente', 1),
+(4, 2, 'cliente1@cliente.com', 'cliente1', 0);
 
 --
 -- Índices para tablas volcadas
@@ -117,16 +144,28 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `servicios`
+--
+ALTER TABLE `servicios`
+  MODIFY `servicio_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas

@@ -1,6 +1,6 @@
 <?php
 
-class Servicio{
+class Servicio {
 
     //Atributos de la tabla servicio
     private $servicio_id;
