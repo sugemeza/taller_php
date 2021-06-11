@@ -1,6 +1,6 @@
 <?php
-
-class CrudCategoria{
+require_once('controlador/Conexion.php');
+class CrudCategoria {
 
     //Definir constructor vacio
     public function __construct(){}

@@ -1,6 +1,6 @@
 <?php
 require_once('controlador/Conexion.php');
-class CrudServicio{
+class CrudServicio {
 
     //Definir constructor vacio
     public function __construct(){}

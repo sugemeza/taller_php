@@ -6,15 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="js/Funciones.js"></script>
+
     <title>Index</title>
 </head>
 <body>
-<nav>
-    <div class="nav-wrapper">
-        <a href="Index.php" class="brand-logo">Logo</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down"></ul>
-    </div>
-</nav>
 
 <?php
 
@@ -24,7 +19,6 @@ if(!isset($_SESSION['acceso']) && !isset($_REQUEST['c']) && !isset($_REQUEST['ac
 else {
     require_once ('vista/Menu.php');
 
-    //Para index esto es un error forzado ¿Como lo puedo solucionar?
     if (isset($_REQUEST['c'])) { //isset determina si una variable esta vacia
         $controller = $_REQUEST['c'] . "Controlador";//Variable que va a guardar el controlador
         require_once("controlador/$controller.php");//Guardado del controlador
