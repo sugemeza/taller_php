@@ -8,9 +8,9 @@ class ValidarAcceso {
 
     //Método de verificación
     //Consulta del usuario
-    public function validarAcceso($usuario){
-        $usuario = new Usuario();
-        
+    //El método esta recibiendo un parametro de tipo class usuario de la variable $usuario
+    public function validarAccesoUsuario(Usuario $usuario){
+
         $Db = Db::Conectar();//Cadena de conexión
         $sql = $Db->prepare('SELECT * FROM usuarios
         WHERE email=:email AND password=:password
@@ -18,16 +18,18 @@ class ValidarAcceso {
         $sql->bindValue('email', $usuario->getUsuarioEmail());//Asiganar valores a los parametros
         $sql->bindValue('password', $usuario->getUsuarioPassword());
 
-        $usuario->setUsuarioExiste(0); //Asignacion de cero al parametro existe
+        $usuario->setUsuarioExiste(false);
 
         try{
             $sql->execute();//Ejecución de la cosulta
 
-            if($sql->rowCount()>0){
-                $datosUsuario = $sql->fetch();//Almacena los datos de la consulta
+            if($sql->rowCount()>0){ //Conteo de registro y debe ser mayor a 1 para que ingrese
+                $datosUsuario = $sql->fetch();//Almacena los datos de la consulta de un usuario
                 $usuario->setUsuarioId($datosUsuario['usuario_id']);
                 $usuario->setRolId($datosUsuario['rol_id']);
                 $usuario->setUsuarioPassword('');//Asignacion de nulo a la contraseña
+
+                //Al entrar al condicional existe pasa a ser true
 
             }
         }

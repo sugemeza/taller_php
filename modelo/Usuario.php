@@ -7,7 +7,9 @@ class Usuario{
     private $email;
     private $password;
     private $estado;
+
     //Atriburo para definir si el usuario esta en el sistema, no forma parte de la Db
+    //Será un bool y los inicializamos con false
     private $existe;
 
     //Constructor de objetos
@@ -29,7 +31,7 @@ class Usuario{
     public function setUsuarioEstado($estado){
         $this->estado = $estado;
     }
-    public function setUsuarioExiste($existe){
+    public function setUsuarioExiste($existe) {
         $this->existe = $existe;
     }
 
