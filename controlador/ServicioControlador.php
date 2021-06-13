@@ -3,7 +3,7 @@
 require_once('modelo/Servicio.php');
 require_once('modelo/CrudServicio.php');
 
-class ServicioControlador{
+class ServicioControlador {
     public function __construct(){}
 
     public function index(){

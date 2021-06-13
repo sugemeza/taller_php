@@ -10,7 +10,7 @@
          $usuario = new Usuario();
 
          $usuario->setUsuarioEmail($_REQUEST['email']);
-         $usuario->setUsuarioPassword(sha1(($_REQUEST['password']))); //Aplicando incriptacion
+         $usuario->setUsuarioPassword($_REQUEST['password']); //Aplicando incriptacion
 
         //Llamado de la clase entidad ValidarAcceso desde la file modelo
         $validar_Acceso = new ValidarAcceso();
