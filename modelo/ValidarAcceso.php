@@ -28,8 +28,7 @@ class ValidarAcceso {
                 $usuario->setUsuarioId($datosUsuario['usuario_id']);
                 $usuario->setRolId($datosUsuario['rol_id']);
                 $usuario->setUsuarioPassword('');//Asignacion de nulo a la contraseña
-
-                //Al entrar al condicional existe pasa a ser true
+                $usuario->setUsuarioExiste(true);
 
             }
         }
