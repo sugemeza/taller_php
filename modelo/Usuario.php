@@ -1,6 +1,6 @@
 <?php
 
-class Usuario{
+class Usuario {
     //Atributos 
     private $usuario_id;
     private $rol_id;
