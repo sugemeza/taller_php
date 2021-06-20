@@ -1,30 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="css/style.css">
+<div class="container">
+    <div class="row">
 
-    <title>Editar Categoría</title>
-</head>
-<body>
-    <div class="container">
-        <div class="row"> 
-            
-            <h3>Editar Categoría</h3>
+        <h3>Editar Categoría</h3>
 
-            <form name="frmCategoria" id="frmCategoria" action="Index.php?c=Categoria&accion=modificar" method="POST">
+        <form name="frmCategoria" id="frmCategoria" action="Index.php?c=Categoria&accion=modificar" method="POST">
 
-            <input type="hidden" name="categoria_id" id="categoria_id" value="<?php echo $categoria['categoria_id'] ?>"/>
-                <input type="text" name="nombre" id="nombre" value="<?php echo $categoria['nombre'] ?>"/>
-                <label for="nombre">Nombre</label>
-                </br></br>
-                <button type="submit" class="waves-effect waves-light btn-small">Guardar</button> 
-            </form>
-        </div>
+            <input type="hidden" name="categoria_id" id="categoria_id" value="<?php echo $categoria['categoria_id'] ?>" />
+            <input type="text" name="nombre" id="nombre" value="<?php echo $categoria['nombre'] ?>" />
+            <label for="nombre">Nombre</label>
+            </br></br>
+            <button type="submit" class="waves-effect waves-light btn-small">Guardar</button>
+        </form>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-</html>
+</div>

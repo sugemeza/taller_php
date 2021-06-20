@@ -2,10 +2,10 @@
 
 //Por alguna extraña razon los riquire_one no funcionan si no estoy logiado
 
-if(isset($_SESSION['rol_id'])){ //Verificacion de rol
+if (isset($_SESSION['rol_id'])) { //Verificacion de rol
 
-    if($_SESSION['rol_id'] == 1){
-        ?>
+    if ($_SESSION['rol_id'] == 1) {
+?>
         <nav>
             <div class="nav-wrapper">
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -16,10 +16,9 @@ if(isset($_SESSION['rol_id'])){ //Verificacion de rol
                 </ul>
             </div>
         </nav>
-        <?php
-    }
-    elseif ($_SESSION['rol_id'] == 2){
-        ?>
+    <?php
+    } elseif ($_SESSION['rol_id'] == 2) {
+    ?>
         <nav>
             <div class="nav-wrapper">
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -28,10 +27,9 @@ if(isset($_SESSION['rol_id'])){ //Verificacion de rol
                 </ul>
             </div>
         </nav>
-        <?php
-    }
-    elseif ($_SESSION['rol_id'] == 3){
-        ?>
+    <?php
+    } elseif ($_SESSION['rol_id'] == 3) {
+    ?>
         <nav>
             <div class="nav-wrapper">
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -42,11 +40,9 @@ if(isset($_SESSION['rol_id'])){ //Verificacion de rol
                 </ul>
             </div>
         </nav>
-        <?php
-    }
-    else{
+<?php
+    } else {
         header('Location:../Index.php');
     }
-
 }
 ?>
