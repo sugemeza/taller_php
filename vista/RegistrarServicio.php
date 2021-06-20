@@ -1,3 +1,10 @@
+<?php
+$controladorPedido = new CategoriaControlador();
+$listaCategoria = $controladorPedido->listarCategorias();
+
+//var_dump($listaCategoria);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +23,22 @@
                 <h3>Registrar Servicio</h3>
                 <input type="text" name="nombre" id="nombre" >
                 <label for="nombre">Nombre</label>
-                </br>
+                </br> </br> </br>
+
+                <div class="input-field col s12">
+                    <select name="categorias" id="categorias">
+                        <option value="" disabled selected>Selección de categoría</option>
+                        <?php
+                    foreach ($listaCategoria as $categoria){
+                    ?>
+                        <option value="<?php echo $categoria['categoria_id'] ?>"><?php echo $categoria['nombre']?></option>
+                        <?php
+                    }
+                    ?>
+                    </select>
+                    <label>Categoría</label>
+                </div>
+
                 <input type="text" name="descripcion" id="descripcion" >
                 <label for="descripcion">Descripción</label>
                 </br>
@@ -40,8 +62,7 @@
             </form>
         </div>
     </div>
-    <script src="./Librerias/jQuery v3.6.0.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 </html>

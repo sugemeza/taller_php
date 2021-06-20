@@ -76,9 +76,6 @@ $listaCategoria = $controladorPedido->listarCategorias();
     </div>
 
     <!-- Compiled and minified JavaScript -->
-    <script src="./Librerias/jQuery v3.6.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script type="text/javascript" src="./js/app.js"></script>    
 </body>
 </html>

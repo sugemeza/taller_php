@@ -6,7 +6,6 @@ class Solicitud {
     private $solicitud_id;
     private $usario_id;
     private $fechaServicio;
-    private $precio;
 
     public function __construct(){}
 
@@ -19,9 +18,6 @@ class Solicitud {
     }
     public function setSolicitudFechaServicio($fechaServicio){
         $this->fechaServicio = $fechaServicio;
-    }
-    public function setSolicitudPrecio($precio){
-        $this->precio = $precio;
     }
 
     //Métodos get
@@ -37,9 +33,6 @@ class Solicitud {
     }
     public function getUsuarioPassword(){
         return $this->password;
-    }
-    public function getSolicitudPrecio(){
-        return $this->precio;
     }
 
 

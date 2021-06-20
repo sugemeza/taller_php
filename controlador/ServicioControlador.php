@@ -2,6 +2,7 @@
 //Rutas de los modelos y conexión
 require_once('modelo/Servicio.php');
 require_once('modelo/CrudServicio.php');
+require_once('controlador/CategoriaControlador.php');
 
 class ServicioControlador {
     public function __construct(){}
@@ -17,7 +18,7 @@ class ServicioControlador {
     }
 
     public function registrar(){
-        require_once('vista/RegistrarServicio.html');
+        require_once('vista/RegistrarServicio.php');
     }
 
     public function guardar(){

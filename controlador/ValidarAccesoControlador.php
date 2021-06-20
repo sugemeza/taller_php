@@ -26,29 +26,28 @@
 
             //Referencias a las variables de sesion
             /*Como esta funcion ya la estamos llamando en el index esta queda global para todos los metodos
-            que la invocar
-             * session_start();//Variables de sesion*/
+            que la invocar*/
+             
+             session_start();//Variables de sesion
             $_SESSION['acceso'] = true;
             $_SESSION['usuario_id'] = $usuario->getUsuarioId();
             $_SESSION['rol_id'] = $usuario->getRolId();
 
             header("Location: index.php");
-            //require_once ('Index.php');
+
          }
          else{
              //Ruta de redirección
              header("Location: index.php");
 
-             /*echo "<script> alert('No existe');
-                   document.location.href='Index.php';
-                   </script>";*/
          }
      }
 
      public function cerrarSesion(){
-        //sessio_start();
-        session_destroy();//Desctruye la sesión
+         session_start();
+         session_destroy();//Desctruye la sesión
         header("Location: index.php");
      }
+
  }
 ?>

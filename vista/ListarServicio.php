@@ -13,12 +13,7 @@ $listaServicio = $controladorPedido->listarServicios();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/Funciones.js"></script>
-
-    <title>Servicio</title>
+    <title>Servicios</title>
 
 </head>
 <body>
@@ -69,7 +64,6 @@ $listaServicio = $controladorPedido->listarServicios();
 
                             <input type="hidden" name="servicio_id" id="servicio_id" value="<?php echo $servicio['servicio_id']; ?>"/>
                             <button type="submit">Editar</button>
-                            <!--<i  class="Small material-icons">create</i>-->
                         </form>
 
                         <form name="frmEliminar" id="frmEliminar<?php echo $servicio['servicio_id']?>" action="Index.php?c=Servicio&accion=eliminar" method="POST">
@@ -77,7 +71,6 @@ $listaServicio = $controladorPedido->listarServicios();
                             <input type="hidden" name="servicio_id" id="servicio_id" value="<?php echo $servicio['servicio_id']; ?>"/>
 
                             <button type="submit" onclick="eliminarServicio(<?php echo $servicio['servicio_id']; ?>)">Eliminar</button>
-                            <!--<i  class="Small material-icons">delete</i>-->
                         </form>
                     </td>
                 </tr>
@@ -92,15 +85,6 @@ $listaServicio = $controladorPedido->listarServicios();
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-<!--Información que consegui de datatable
-  <script type="application/javascript">
-  $(document).ready( function () {
-      $('#theTable').DataTable({
-          ajax: '/get_data.php',
-      });
-  } );-->
-</script>
 </body>
 </html>

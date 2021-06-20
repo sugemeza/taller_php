@@ -9,43 +9,26 @@ function eliminarServicio(servicio){
   }
 }
 
-/*function eliminarCategoria(categoria_id){
-    Swal.fire({
-        title: '¿Seguro de borrar esta categoría?',
-        text: "¡No podras revertirlo!",
-        icon: 'Alerta',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, borrarla!'
+$('#frmSolicitud').submit(function (event){
+    event.preventDefault();
 
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Cancelar!',
-            '¡La categría fue borrada!.',
-            'Éxito'
-          )
-        }
-      })
+    if($('#servicios').val()==""){
+        alert("Debe seleccionar un servicios");
+    }
+    else {
+        $.ajax({
+            type:'POST', //Tipo de petición
+            url:'Index.php?c=Solicitud&accion=guardar&peticionAjax', //De donde viene la petición
+            data:$('#frmSolicitud').serialize(),//Parametros del formulario
+
+            success: function (data)
+            {
+                console.log(data); //Informacion que nos retorna el formulario
+            }
+        });
+    }
+});
+
+function consultarPrecios(servicio_id){
+    console.log(servicio_id);
 }
-function eliminarServicio(){
-  Swal.fire({
-      title: '¿Seguro de borrar esta categoría?',
-      text: "¡No podras revertirlo!",
-      icon: 'Alerta',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, borrarla!'
-
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire(
-          'Cancelar!',
-          '¡La categría fue borrada!.',
-          'Éxito'
-        )
-      }
-    })
-}*/

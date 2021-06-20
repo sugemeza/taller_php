@@ -8,84 +8,52 @@ class CrudSolicitud {
 
     public function listarSolicitudes(){
         $Db = Db:: Conectar();//Cadena de conexión
-        $sql = $Db->query('SELECT * FROM categorias');//Definir la consulta
+        $sql = $Db->query('SELECT * FROM solicitudes');//Definir la consulta
         $sql->execute();//Ejecución de la cosulta
         Db::CerrarConexion($Db);//Función para desonectarse de la base de datos
         return $sql->fetchAll();
 
     }
 
-    public function guardar($categoria){
+   public function guardar($solicitud){
 
         $mensaje = "";
+        $solicitud_id = -1;//Solicitud insertada
+
+
         $Db = Db:: Conectar();//Cadena de conexión
         //Definir sentencia sql
         //El prepare hace que el cambio de un valor no tenga efecto
+       //No me tomo la variable de las comillas vacias
+
         $sql = $Db->prepare('INSERT INTO 
-        categorias(categoria_id,nombre) 
-        VALUES(:categoria_id,:nombre)');
+        solicitudes(solicitud_id,usuario_id,fechaServicio) 
+        VALUES(:solicitud_id,:usuario_id, now())');
 
-        $sql->bindValue('categoria_id',$categoria->getCategoriaId());//Se asigna parametro y se guarda en memoria
-        $sql->bindValue('nombre',$categoria->getCategoriaNombre());
+       $sql->bindValue('solicitud_id',$solicitud->getSolicitudId());
+       $sql->bindValue('usuario_id',$_SESSION['usuario_id']);
+
 
         //Filtro de la ejecucion de las consultas
         try{//Ejecutar la sentencia sql definida contenida en la variable $sql
             $sql->execute();
             $mensaje = "Registro Exitoso";
+            $solicitud_id = $Db->lastInsertId();
         }
         catch(Exception $e){//Captura error
             $mensaje = $e;
         }
 
         Db::CerrarConexion($Db);//Cerrar la conexion con la Db
-        return $mensaje;//Retorna mensaje
+        return $solicitud_id;//Retorna id para uso en la tabla detalle
     }
-
-    public function buscarCategoria($categoria){//Verficar si tiene que ser categoria_id o solo $categoria
-        $Db = Db:: Conectar();//Cadena de conexión
-        $sql = $Db->query("SELECT * FROM categorias
-        WHERE categoria_id=$categoria");//Definir la consulta
-        $sql->execute();//Ejecución de la cosulta
-        Db::CerrarConexion($Db);//Función para desonectarse de la base de datos
-        return $sql->fetch();//Obtener el registro
-
-    }
-
-
-    public function modificar($categoria) {
-
-        $mensaje = "";
-        $Db = Db:: Conectar();//Cadena de conexión
-        //Definir sentencia sql
-        //El prepare hace que el cambio de un valor no tenga efecto
-        $sql = $Db->prepare("UPDATE 
-        categorias SET nombre=:nombre
-        where categoria_id=:categoria_id");
-
-        $sql->bindValue('categoria_id',$categoria->getCategoriaId());//El id esta autoincrementable
-        $sql->bindValue('nombre',$categoria->getCategoriaNombre());
-
-        //Filtro de la ejecucion de las consultas
-        try{//Ejecutar la sentencia sql definida contenida en la variable $sql
-
-            $sql->execute();
-            $mensaje = "Registro Exitoso";
-        }
-        catch(Exception $e){//Captura error
-            $mensaje = $e;
-        }
-
-        Db::CerrarConexion($Db);//Cerrar la conexion con la Db
-        return $mensaje;//Retorna mensaje
-    }
-
-    public function eliminar($categoria_id) {
+    public function eliminar($solicitud_id) {
 
         $mensaje = "";
         $Db = Db:: Conectar();//Cadena de conexión
 
-        $sql = $Db->prepare("DELETE FROM categorias
-        where categoria_id=$categoria_id");
+        $sql = $Db->prepare("DELETE FROM solicitudes
+        where solicitud_id=$solicitud_id");
 
         //Filtro de la ejecucion de las consultas
         try{//Ejecutar la sentencia sql definida contenida en la variable $sql
@@ -100,4 +68,5 @@ class CrudSolicitud {
         Db::CerrarConexion($Db);//Cerrar la conexion con la Db
         return $mensaje;//Retorna mensaje
     }
+
 }
