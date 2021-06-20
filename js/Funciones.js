@@ -20,15 +20,27 @@ $('#frmSolicitud').submit(function (event){
             type:'POST', //Tipo de petición
             url:'Index.php?c=Solicitud&accion=guardar&peticionAjax', //De donde viene la petición
             data:$('#frmSolicitud').serialize(),//Parametros del formulario
-
-            success: function (data)
-            {
+            success: function (data){
                 console.log(data); //Informacion que nos retorna el formulario
+                $('#solicitud_id').val(data);
             }
         });
     }
 });
 
-function consultarPrecios(servicio_id){
+function consultarPrecio(servicio_id){
     console.log(servicio_id);
+    let formData = new FormData(); //Se usa para solicitar el formulario
+    formData.append('servicio',servicio_id);
+    $.ajax({
+        type:'POST', //Tipo de petición
+        url:'Index.php?c=Servicio&accion=ConsultarPrecio&peticionAjax', //De donde viene la petición
+        data:formData,
+        contentType:false,
+        processData:false,
+        success: function (response){
+            console.log(response); //Informacion que nos retorna el formulario
+            $('#precioUnitario').val(response);
+        }
+    });
 }

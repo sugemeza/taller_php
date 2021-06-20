@@ -17,8 +17,8 @@ $listaServicio = $controladorPedido->listarServicios();
 
 
             <div class="input-field col s12">
-                <select name="servicios" id="servicios" onchange="consultarPrecios(this.value)">
-                    <option value="" disabled selected>Selección de servicios</option>
+                <select name="servicios" id="servicios" onchange="consultarPrecio(this.value)">
+                    <option value="" selected>Selección de servicios</option>
                     <?php
                     foreach ($listaServicio as $servicios){
                     ?>

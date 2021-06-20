@@ -55,7 +55,7 @@ if(!isset($_REQUEST['peticionAjax'])){//Si la peticion ajax no esta definida
 ?>
 <!--Script y librerias-->
 
-    <script src="js/Funciones.js"></script>
+    
     <script
             src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -69,9 +69,9 @@ if(!isset($_REQUEST['peticionAjax'])){//Si la peticion ajax no esta definida
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+    <script src="js/Funciones.js"></script>
 </body>
 </html>
 <?php
-}
-    ?>
+}//aqui cierra el ajax
+?>

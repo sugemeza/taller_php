@@ -15,7 +15,7 @@ class CrudSolicitud {
 
     }
 
-   public function guardar($solicitud){
+   public function guardar($solicitud_id){
 
         $mensaje = "";
         $solicitud_id = -1;//Solicitud insertada
@@ -26,11 +26,10 @@ class CrudSolicitud {
         //El prepare hace que el cambio de un valor no tenga efecto
        //No me tomo la variable de las comillas vacias
 
-        $sql = $Db->prepare('INSERT INTO 
+        $sql = $Db->prepare("INSERT INTO 
         solicitudes(solicitud_id,usuario_id,fechaServicio) 
-        VALUES(:solicitud_id,:usuario_id, now())');
+        VALUES('',:usuario_id, now())");
 
-       $sql->bindValue('solicitud_id',$solicitud->getSolicitudId());
        $sql->bindValue('usuario_id',$_SESSION['usuario_id']);
 
 
@@ -68,5 +67,6 @@ class CrudSolicitud {
         Db::CerrarConexion($Db);//Cerrar la conexion con la Db
         return $mensaje;//Retorna mensaje
     }
+
 
 }

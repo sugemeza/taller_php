@@ -56,6 +56,16 @@ class CrudServicio {
 
     }
 
+    public function consultarPrecio($servicio_id){
+        $Db = Db:: Conectar();//Cadena de conexión
+        $sql = $Db->query("SELECT precio FROM servicios
+        WHERE servicio_id=$servicio_id ");//Definir la consulta
+        $sql->execute();//Ejecución de la cosulta
+        Db::CerrarConexion($Db);//Función para desonectarse de la base de datos
+        return $sql->fetch();//Método PDO para obtener todas las consultas de la Db
+
+    }
+
     public function modificar($servicio){
 
         $mensaje = "";

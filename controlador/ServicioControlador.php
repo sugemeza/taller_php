@@ -77,6 +77,13 @@ class ServicioControlador {
         echo $crudServicio->eliminar($_REQUEST['servicio_id']);
         //require_once('vista/EditarCategoria.php');
     }
+
+    
+    public function consultarPrecio(){
+        $crudServicio = new CrudServicio();
+        //Impresion del precio que se consulta a la base de datos
+        echo $crudServicio->consultarPrecio($_REQUEST['servicio'])['precio'];
+    }
 }
 
 ?>
