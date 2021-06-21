@@ -46,6 +46,7 @@ class CrudSolicitud {
         Db::CerrarConexion($Db);//Cerrar la conexion con la Db
         return $solicitud_id;//Retorna id para uso en la tabla detalle
     }
+
     public function eliminar($solicitud_id) {
 
         $mensaje = "";
@@ -66,6 +67,45 @@ class CrudSolicitud {
 
         Db::CerrarConexion($Db);//Cerrar la conexion con la Db
         return $mensaje;//Retorna mensaje
+    }
+
+    public function guardarDetalle($detalle){
+        $mensaje = ""; 
+
+        $Db = Db:: Conectar();//Cadena de conexión
+    
+        $sql = $Db->prepare("INSERT INTO 
+        detallesolicitudes(detalleSolicitud_id,solicitud_id,servicio_id,precioUnitario,cantidad) 
+        VALUES('',:solicitud_id,:servicio_id,:precioUnitario,:cantidad )");
+
+        $sql->bindValue('solicitud_id',$detalle->getSolicitudId());
+        $sql->bindValue('servicio_id',$detalle->getServicioId());
+        $sql->bindValue('precioUnitario',$detalle->getPrecioUnitario());
+        $sql->bindValue('cantidad',$detalle->getCantidad());
+     
+
+
+        //Filtro de la ejecucion de las consultas
+        try{//Ejecutar la sentencia sql definida contenida en la variable $sql
+            $sql->execute();
+            $mensaje = "Registro Exitoso";
+        }
+        catch(Exception $e){//Captura error
+            $mensaje = $e;
+        }
+
+        Db::CerrarConexion($Db);//Cerrar la conexion con la Db
+        return $mensaje;
+    }
+
+    public function listarDetalleSolicitud($solicitud_id){
+        $Db = Db:: Conectar();//Cadena de conexión
+        $sql = $Db->query("SELECT * FROM detallesolicitudes
+        WHERE solicitud_id=$solicitud_id");//Definir la consulta
+        $sql->execute();//Ejecución de la cosulta
+        Db::CerrarConexion($Db);//Función para desonectarse de la base de datos
+        return $sql->fetchAll();
+
     }
 
 

@@ -23,6 +23,7 @@ $('#frmSolicitud').submit(function (event){
             success: function (data){
                 console.log(data); //Informacion que nos retorna el formulario
                 $('#solicitud_id').val(data);
+                listarDetalleSolicitud();
             }
         });
     }
@@ -39,8 +40,30 @@ function consultarPrecio(servicio_id){
         contentType:false,
         processData:false,
         success: function (response){
-            console.log(response); //Informacion que nos retorna el formulario
             $('#precioUnitario').val(response);
         }
     });
 }
+
+function listarDetalleSolicitud(){
+    console.log('form here', $('#solicitud_id').val());
+    let formData = new FormData(); //Se usa para solicitar el formulario
+    formData.append('solicitud_id', $('#solicitud_id').val());
+    $.ajax({
+        type:'POST', //Tipo de petición
+        url:'Index.php?c=Solicitud&accion=listarDetalleSolicitud&peticionAjax', //De donde viene la petición
+        data:formData,
+        contentType:false,
+        processData:false,
+        success: function(response){
+            //Imprimir registros
+            document.getElementById('detalleSolicitud').innerHTML = response;   
+        }
+    });    
+}
+
+function calcularValorDetalle(){
+    $('#precioTotal').val($('#precioUnitario').val()*$('#cantidad').val());
+}
+
+
