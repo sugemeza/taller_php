@@ -108,5 +108,24 @@ class CrudSolicitud {
 
     }
 
+    public function eliminarDetalleSolicitud($detalleSolicitud_id){
+        $mensaje=" ";
+
+        $Db = Db:: Conectar();//Cadena de conexión
+        $sql = $Db->query("DELETE FROM detallesolicitudes
+        WHERE detalleSolicitud_id=$detalleSolicitud_id");//Definir la consulta
+
+        try{//Ejecutar la sentencia sql definida contenida en la variable $sql
+            $sql->execute();
+            $mensaje = "Eliminado";
+        }
+        catch(Exception $e){//Captura error
+            $mensaje = $e;
+        }
+
+        Db::CerrarConexion($Db);//Función para desonectarse de la base de datos
+        return $mensaje;
+    }
+
 
 }

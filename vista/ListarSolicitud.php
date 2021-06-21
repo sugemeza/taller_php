@@ -15,6 +15,7 @@ $listaSolicitud = $controladorPedido->listarSolicitudes();
                     <th>Código</th>
                     <th>Responsable</th>
                     <th>Fecha</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
 
@@ -34,18 +35,6 @@ $listaSolicitud = $controladorPedido->listarSolicitudes();
                             <?php echo $solicitud['fechaServicio']; ?>
                         </td>
                         <td>
-                            <!--Esto serían metodos en el controlador que aun faltan por definir-->
-                            <form name="frmEditar" id="frmEditar" action="Index.php?c=Solicitud&accion=editar" method="POST">
-
-                                <!--type="botton" preguintar si se puede poner Type="button"-->
-                                <!--Pendiente por poner el type hidden-->
-
-                                <input type="hidden" name="solicitud_id" id="solicitud_id" value="<?php echo $solicitud['solicitud_id']; ?>" />
-                                <button type="submit">Editar</button>
-
-                                <!--<i  class="Small material-icons">delete</i>
-                            <i  class="Small material-icons">create</i>-->
-                            </form>
                             <form name="frmEliminar" id="frmEliminar<?php echo $solicitud['solicitud_id'] ?>" action="Index.php?c=Solicitud&accion=eliminar" method="POST">
 
                                 <input type="hidden" name="solicitud_id" id="solicitud_id" value="<?php echo $solicitud['solicitud_id']; ?>" />

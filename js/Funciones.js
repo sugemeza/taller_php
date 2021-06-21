@@ -21,7 +21,6 @@ $('#frmSolicitud').submit(function (event){
             url:'Index.php?c=Solicitud&accion=guardar&peticionAjax', //De donde viene la petición
             data:$('#frmSolicitud').serialize(),//Parametros del formulario
             success: function (data){
-                console.log(data); //Informacion que nos retorna el formulario
                 $('#solicitud_id').val(data);
                 listarDetalleSolicitud();
             }
@@ -30,7 +29,6 @@ $('#frmSolicitud').submit(function (event){
 });
 
 function consultarPrecio(servicio_id){
-    console.log(servicio_id);
     let formData = new FormData(); //Se usa para solicitar el formulario
     formData.append('servicio',servicio_id);
     $.ajax({
@@ -46,7 +44,6 @@ function consultarPrecio(servicio_id){
 }
 
 function listarDetalleSolicitud(){
-    console.log('form here', $('#solicitud_id').val());
     let formData = new FormData(); //Se usa para solicitar el formulario
     formData.append('solicitud_id', $('#solicitud_id').val());
     $.ajax({
@@ -66,4 +63,40 @@ function calcularValorDetalle(){
     $('#precioTotal').val($('#precioUnitario').val()*$('#cantidad').val());
 }
 
+function eliminarDetalle(detalleSolicitud_id){
+    //No se pudo cambiar el idioma daba error
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+
+        if (result.isConfirmed) {
+            //Eliminacion del detalle
+            let formData = new FormData(); //Se usa para solicitar el formulario
+            formData.append('detalleSolicitud_id',detalleSolicitud_id);
+            $.ajax({
+                type:'POST',
+                url:'Index.php?c=Solicitud&accion=eliminarDetalleSolicitud&peticionAjax', //De donde viene la petición
+                data:formData,
+                contentType:false,
+                processData:false,
+                success: function (response){
+                    console.log(response);
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                    listarDetalleSolicitud();
+                }
+            });
+          
+        }
+    })
+}
 

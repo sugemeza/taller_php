@@ -60,5 +60,11 @@ class SolicitudControlador {
         require_once('vista/ListarSolicitud.php');
     }
 
+    public function eliminarDetalleSolicitud(){
+        $crudSolicitud = new CrudSolicitud();
+        echo $crudSolicitud->eliminarDetalleSolicitud($_REQUEST['detalleSolicitud_id']);
+        echo $_REQUEST['detalleSolicitud_id'];
+    }
+    
 }
 ?>
