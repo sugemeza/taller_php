@@ -22,7 +22,7 @@ $listaServicio = $controladorPedido->listarServicios();
                     <?php
                     foreach ($listaServicio as $servicios){
                     ?>
-                        <option value="<?php echo $servicios['servicio_id'] ?>"><?php echo $servicios['nombre']." $".$servicios['precio'] ?></option>
+                        <option value="<?php echo $servicios['servicio_id'] ?>"><?php echo $servicios['nombre'] ?></option>
                     <?php
                     }
                     ?>

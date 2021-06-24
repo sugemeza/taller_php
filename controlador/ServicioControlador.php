@@ -31,7 +31,7 @@ class ServicioControlador {
 
         //Settear 
         $servicio->setServicioNombre($_REQUEST['nombre']);
-        $servicio->setCategoriaId(1);
+        $servicio->setCategoriaId($_REQUEST['categorias']);
         $servicio->setServicioDescripcion($_REQUEST['descripcion']);
         $servicio->setServicioPrecio($_REQUEST['precio']);
         $servicio->setServicioEstado($_REQUEST['estado'] === 'on' ? true : false);
@@ -60,7 +60,7 @@ class ServicioControlador {
         //Settear 
         $servicio->setServicioId($_REQUEST['servicio_id']);
         $servicio->setServicioNombre($_REQUEST['nombre']);
-        $servicio->setCategoriaId(1);
+        $servicio->setCategoriaId($_REQUEST['categotia_id']);
         $servicio->setServicioDescripcion($_REQUEST['descripcion']);
         $servicio->setServicioPrecio($_REQUEST['precio']);
         $servicio->setServicioEstado($_REQUEST['estado'] === 'on' ? true : false);
@@ -74,8 +74,7 @@ class ServicioControlador {
     
     public function eliminar(){
         $crudServicio = new CrudServicio();
-        echo $crudServicio->eliminar($_REQUEST['servicio_id']);
-        //require_once('vista/EditarCategoria.php');
+        $crudServicio->eliminar($_REQUEST['servicio_id']);
     }
 
     

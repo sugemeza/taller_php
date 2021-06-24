@@ -2,7 +2,6 @@
 $controladorPedido = new CategoriaControlador();
 $listaCategoria = $controladorPedido->listarCategorias();
 
-//var_dump($listaCategoria);
 ?>
 <div class="container">
     <div class="row">
@@ -14,7 +13,7 @@ $listaCategoria = $controladorPedido->listarCategorias();
 
             <div class="input-field col s12">
                 <select name="categorias" id="categorias">
-                    <option value="" disabled selected>Selección de categoría</option>
+                    <option value="" selected>Selección de categoría</option>
                     <?php
                     foreach ($listaCategoria as $categoria) {
                     ?>

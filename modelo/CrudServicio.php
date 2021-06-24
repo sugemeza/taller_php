@@ -80,7 +80,7 @@ class CrudServicio {
         $sql->bindValue('nombre',$servicio->getServicioNombre());
 
         //Asiganacion de llave foranea
-        $sql->bindValue('categoria_id',1);
+        $sql->bindValue('categoria_id',$servicio->getCategoriaId());
         
         $sql->bindValue('descripcion',$servicio->getServicioDescipcion());
         $sql->bindValue('precio',$servicio->getServicioPrecio());

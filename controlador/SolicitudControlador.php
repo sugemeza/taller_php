@@ -1,9 +1,9 @@
 <?php
 //Rutas de los modelos y conexión
-require_once('modelo/Solicitud.php');
-require_once('modelo/CrudSolicitud.php');
-require_once('modelo/DetalleSolicitud.php');
-require_once('controlador/ServicioControlador.php');
+    require_once('modelo/Solicitud.php');
+    require_once('modelo/CrudSolicitud.php');
+    require_once('modelo/DetalleSolicitud.php');
+    require_once('controlador/ServicioControlador.php');
 
 
 class SolicitudControlador {
@@ -52,8 +52,9 @@ class SolicitudControlador {
         $crudSolicitud = new CrudSolicitud();
         $listaDetalle = $crudSolicitud->listarDetalleSolicitud($_REQUEST['solicitud_id']);
         require_once('vista/ListarDetalleSolicitud.php');
+        
     }
-
+    
     public function eliminar(){
         $crudSolicitud = new CrudSolicitud();
         echo $crudSolicitud->eliminar($_REQUEST['solicitud_id']);
