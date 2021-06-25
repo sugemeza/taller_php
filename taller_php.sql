@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2021 a las 01:23:55
+-- Tiempo de generación: 25-06-2021 a las 22:30:13
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 7.4.18
 
@@ -29,16 +29,42 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categorias` (
   `categoria_id` int(11) NOT NULL,
-  `nombre` varchar(20) NOT NULL
+  `nombre` varchar(20) NOT NULL,
+  `descripcion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `categorias`
 --
 
-INSERT INTO `categorias` (`categoria_id`, `nombre`) VALUES
-(1, 'Cabello'),
-(2, 'Uñas');
+INSERT INTO `categorias` (`categoria_id`, `nombre`, `descripcion`) VALUES
+(1, 'Cabello', ''),
+(2, 'Uñas', ''),
+(19, 'Tintura', 'Tinturado de cabello');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detallesolicitudes`
+--
+
+CREATE TABLE `detallesolicitudes` (
+  `detalleSolicitud_id` int(11) NOT NULL,
+  `solicitud_id` int(11) NOT NULL,
+  `servicio_id` int(11) NOT NULL,
+  `precioUnitario` double DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `detallesolicitudes`
+--
+
+INSERT INTO `detallesolicitudes` (`detalleSolicitud_id`, `solicitud_id`, `servicio_id`, `precioUnitario`, `cantidad`) VALUES
+(2, 2, 16, 15000, 2),
+(3, 3, 21, 24000, 3),
+(4, 4, 16, 15000, 1),
+(5, 4, 21, 24000, 1);
 
 -- --------------------------------------------------------
 
@@ -80,9 +106,30 @@ CREATE TABLE `servicios` (
 --
 
 INSERT INTO `servicios` (`servicio_id`, `nombre`, `categoria_id`, `descripcion`, `precio`, `estado`) VALUES
-(12, 'Sugeis Meza', 1, 'Proceso de belleza con cepillo y secador que aliza el cabello', 12.00, 0),
-(14, 'Mario Hernandez', 1, 'Proceso de belleza con cepillo y secador que aliza el cabello', 2222.00, 0),
-(15, 'Ondas', 1, 'Procedimiento hecho con tenazas que le da cuerpo al cabello', 30000.00, 1);
+(16, 'Corte de cabello ', 1, 'Proceso de belleza donde se usan tijeras', 15000.00, 1),
+(21, 'Acrilicas', 1, 'Maquillaje de uñas', 24000.00, 1),
+(25, 'Keratina', 1, 'Proceso en el que se alisa el cabello ', 45000.00, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `solicitudes`
+--
+
+CREATE TABLE `solicitudes` (
+  `solicitud_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `fechaServicio` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `solicitudes`
+--
+
+INSERT INTO `solicitudes` (`solicitud_id`, `usuario_id`, `fechaServicio`) VALUES
+(2, 1, '2021-06-24 19:29:01'),
+(3, 1, '2021-06-24 19:32:54'),
+(4, 1, '2021-06-24 19:55:51');
 
 -- --------------------------------------------------------
 
@@ -94,7 +141,7 @@ CREATE TABLE `usuarios` (
   `usuario_id` int(11) NOT NULL,
   `rol_id` int(11) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(40) NOT NULL,
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -105,7 +152,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`usuario_id`, `rol_id`, `email`, `password`, `estado`) VALUES
 (1, 1, 'admin@admin.com', 'admin', 1),
 (2, 3, 'profesional@profesional.com', 'profesional', 1),
-(3, 2, 'cliente@cliente.com', 'cliente', 1),
+(3, 2, 'cliente@cliente.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1),
 (4, 2, 'cliente1@cliente.com', 'cliente1', 0);
 
 --
@@ -119,6 +166,14 @@ ALTER TABLE `categorias`
   ADD PRIMARY KEY (`categoria_id`);
 
 --
+-- Indices de la tabla `detallesolicitudes`
+--
+ALTER TABLE `detallesolicitudes`
+  ADD PRIMARY KEY (`detalleSolicitud_id`),
+  ADD KEY `solicitud_id` (`solicitud_id`),
+  ADD KEY `servicio_id` (`servicio_id`);
+
+--
 -- Indices de la tabla `roles`
 --
 ALTER TABLE `roles`
@@ -130,6 +185,13 @@ ALTER TABLE `roles`
 ALTER TABLE `servicios`
   ADD PRIMARY KEY (`servicio_id`),
   ADD KEY `categoria_id` (`categoria_id`);
+
+--
+-- Indices de la tabla `solicitudes`
+--
+ALTER TABLE `solicitudes`
+  ADD PRIMARY KEY (`solicitud_id`),
+  ADD KEY `usuario_id` (`usuario_id`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -147,7 +209,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT de la tabla `detallesolicitudes`
+--
+ALTER TABLE `detallesolicitudes`
+  MODIFY `detalleSolicitud_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -159,7 +227,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
-  MODIFY `servicio_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `servicio_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT de la tabla `solicitudes`
+--
+ALTER TABLE `solicitudes`
+  MODIFY `solicitud_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -172,10 +246,23 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- Filtros para la tabla `detallesolicitudes`
+--
+ALTER TABLE `detallesolicitudes`
+  ADD CONSTRAINT `detallesolicitudes_ibfk_1` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitudes` (`solicitud_id`),
+  ADD CONSTRAINT `detallesolicitudes_ibfk_2` FOREIGN KEY (`servicio_id`) REFERENCES `servicios` (`servicio_id`);
+
+--
 -- Filtros para la tabla `servicios`
 --
 ALTER TABLE `servicios`
   ADD CONSTRAINT `servicios_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`categoria_id`);
+
+--
+-- Filtros para la tabla `solicitudes`
+--
+ALTER TABLE `solicitudes`
+  ADD CONSTRAINT `solicitudes_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`usuario_id`);
 
 --
 -- Filtros para la tabla `usuarios`
@@ -187,8 +274,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-/*Comando para limpiar las tablas
-SET FOREIGN_KEY_CHECKS = 1; 
-truncate table solicitudes;
-truncate table detallesolicitudes;*/
