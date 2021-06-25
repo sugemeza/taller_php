@@ -13,7 +13,7 @@ $('#frmSolicitud').submit(function (event){
     event.preventDefault();
 
     if($('#servicios').val()==""){
-        alert("Debe seleccionar un servicios");
+        alert('Debe seleccionar un servicios');
     }
     else {
         $.ajax({
@@ -99,4 +99,5 @@ function eliminarDetalle(detalleSolicitud_id){
         }
     })
 }
+
 

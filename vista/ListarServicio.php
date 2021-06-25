@@ -9,6 +9,7 @@ $listaServicio = $controladorPedido->listarServicios();
 <div class="container">
     <div class="row">
         <a class="waves-effect waves-light btn-small" href="Index.php?c=Servicio&accion=registrar">Registrar Servicio</a>
+        <a class="waves-effect waves-light btn-small" href="vista/ServicioPDF.php">Reporte</a>
         <table class="highlight">
             <thead>
                 <tr>

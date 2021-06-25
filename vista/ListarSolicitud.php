@@ -9,6 +9,7 @@ $listaSolicitud = $controladorPedido->listarSolicitudes();
 <div class="container">
     <div class="row">
         <a class="waves-effect waves-light btn-small" href="Index.php?c=Solicitud&accion=registrar">Registrar Solicitud</a>
+        <a class="waves-effect waves-light btn-small" href="vista/SolicitudPDF.php">Reporte</a>
         <table class="highlight">
             <thead>
                 <tr>

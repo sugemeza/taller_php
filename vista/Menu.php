@@ -7,7 +7,7 @@ if (isset($_SESSION['rol_id'])) { //Verificacion de rol
     if ($_SESSION['rol_id'] == 1) {
 ?>
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper" id="administrador">
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="Index.php?c=Categoria">Categorías</a></li>
                     <li><a href="Index.php?c=Servicio">Servicios</a></li>
