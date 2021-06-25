@@ -21,11 +21,12 @@ class CrudCategoria {
         //Definir sentencia sql
         //El prepare hace que el cambio de un valor no tenga efecto 
         $sql = $Db->prepare('INSERT INTO 
-        categorias(categoria_id,nombre) 
-        VALUES(:categoria_id,:nombre)');
+        categorias(categoria_id,nombre,descripcion) 
+        VALUES(:categoria_id,:nombre,:descripcion)');
 
         $sql->bindValue('categoria_id',$categoria->getCategoriaId());//Se asigna parametro y se guarda en memoria
         $sql->bindValue('nombre',$categoria->getCategoriaNombre());
+        $sql->bindValue('descripcion',$categoria->getCategoriaDescripcion());
 
         //Filtro de la ejecucion de las consultas
         try{//Ejecutar la sentencia sql definida contenida en la variable $sql
@@ -59,10 +60,11 @@ class CrudCategoria {
         //El prepare hace que el cambio de un valor no tenga efecto 
         $sql = $Db->prepare("UPDATE 
         categorias SET nombre=:nombre
-        where categoria_id=:categoria_id");
+        where categoria_id=:categoria_id,:descripcion");
 
         $sql->bindValue('categoria_id',$categoria->getCategoriaId());//El id esta autoincrementable
         $sql->bindValue('nombre',$categoria->getCategoriaNombre());
+        $sql->bindValue('descripcion',$categoria->getCategoriaDescripcion());
 
         //Filtro de la ejecucion de las consultas
         try{//Ejecutar la sentencia sql definida contenida en la variable $sql

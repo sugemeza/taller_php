@@ -24,9 +24,11 @@ class CategoriaControlador{
         $crudCategoria = new CrudCategoria();
         $categoria = new Categoria(); 
         
+        echo 'esta entrando';
         //Settear
         //Input nombre categoria 
         $categoria->setCategoriaNombre($_REQUEST['nombre']);
+        $categoria->setCategoriaDescripcion($_REQUEST['descripcion']);
 
         //Método guardar de la clase curd categoria
         $crudCategoria->guardar($categoria);
@@ -49,6 +51,7 @@ class CategoriaControlador{
         //Input nombre categoria, el id no se va a modificar
         $categoria->setCategoriaId($_REQUEST['categoria_id']);
         $categoria->setCategoriaNombre($_REQUEST['nombre']);
+        $categoria->setCategoriaDescripcion($_REQUEST['descripcion']);
 
         //Método guardar de la clase curd categoria
         $crudCategoria->modificar($categoria);

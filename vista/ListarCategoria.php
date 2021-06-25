@@ -14,6 +14,7 @@ $listaCategoria = $controladorPedido->listarCategorias();
                 <tr>
                     <th>Código</th>
                     <th>Nombre</th>
+                    <th>Descripción</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -29,6 +30,9 @@ $listaCategoria = $controladorPedido->listarCategorias();
                         </td>
                         <td>
                             <?php echo $categoria['nombre']; ?>
+                        </td>
+                        <td>
+                            <?php echo $categoria['descripcion']; ?>
                         </td>
                         <td>
                             <form name="frmEditar" id="frmEditar" action="Index.php?c=Categoria&accion=editar" method="POST">
